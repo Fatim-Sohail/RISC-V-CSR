@@ -108,6 +108,18 @@ module controller
                         CSRReadEnable = 1'b0;
                         CSRWriteEnable = 1'b0;
                 endcase
+                case (funct3)
+                    3'b110:
+                        // MRET instruction
+                        CSRReadEnable = 1'b1;
+                        CSRWriteEnable = 1'b1;
+                        interrupt = 1'b0; // Disable interrupt
+                    default:
+                        // Handle other I-type instructions
+                        CSRReadEnable = 1'b0;
+                        CSRWriteEnable = 1'b0;
+                        interrupt = 1'b0; // Default: No interrupt
+                endcase
             end
             7'b0100011: // S-type - Store Instructions
             begin

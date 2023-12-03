@@ -6,24 +6,32 @@ module Datapath (
     output logic [31:0] CSRDataOut,
     input logic CSRWriteEnable
 );
-    // Assuming memory_type is a type representing a register file
     logic [31:0] CSRRegFile [0:31];
+    logic [31:0] mepc;
+    logic [31:0] PC; 
 
     always_ff @(posedge clk or posedge rst)
     begin
         if (rst)
-            // Reset logic
-            // ...
-        else
-            // Existing datapath logic
-            // ...
+            begin
+            PC <= 32'h0;     
+            mepc <= 32'h0; 
+            interrupt <= 1'b0;
 
-            // CSR register file logic
+            // Reset CSR register file
+            foreach (CSRRegFile[i])
+                CSRRegFile[i] <= 32'h0;
+        end
+
+        else
+            if (interrupt)
+                mepc <= PC;
             if (CSRWriteEnable)
                 CSRRegFile[CSRAddr] <= CSRDataIn;
 
             // Connect CSR register file output to writeback mux
-            WritebackMuxInput <= (CSRReadEnable) ? CSRDataOut : ALU_result; // Modify as per your mux structure
+            WritebackMuxInput <= (CSRReadEnable) ? CSRDataOut : ALU_result;
+
         end
     end
 endmodule
