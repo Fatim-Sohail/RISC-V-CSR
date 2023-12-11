@@ -1,37 +1,10 @@
 # vsim -c -voptargs="+acc" tb_processor -do "run -all" 
-# Start time: 14:01:09 on Dec 04,2023
+# Start time: 12:05:20 on Dec 11,2023
 # ** Note: (vsim-3812) Design is being optimized...
-# //  Questa Sim-64
-# //  Version 2021.1 win64 Jan 19 2021
-# //
-# //  Copyright 1991-2021 Mentor Graphics Corporation
-# //  All Rights Reserved.
-# //
-# //  QuestaSim and its associated documentation contain trade
-# //  secrets and commercial or financial information that are the property of
-# //  Mentor Graphics Corporation and are privileged, confidential,
-# //  and exempt from disclosure under the Freedom of Information Act,
-# //  5 U.S.C. Section 552. Furthermore, this information
-# //  is prohibited from disclosure under the Trade Secrets Act,
-# //  18 U.S.C. Section 1905.
-# //
-# Loading sv_std.std
-# Loading work.tb_processor(fast)
-# Loading work.processor(fast)
-# Loading work.mux_2x1(fast)
-# Loading work.pc(fast)
-# Loading work.inst_mem(fast)
-# Loading work.inst_dec(fast)
-# Loading work.reg_file(fast)
-# Loading work.imm_gen(fast)
-# Loading work.alu(fast)
-# Loading work.data_mem(fast)
-# Loading work.timer(fast)
-# Loading work.csr_reg(fast)
-# Loading work.mux_4x1(fast)
-# Loading work.controller(fast)
-# run -all
-# ** Note: $finish    : tb_processor.sv(32)
-#    Time: 1010 ns  Iteration: 0  Instance: /tb_processor
-# End time: 14:01:16 on Dec 04,2023, Elapsed time: 0:00:07
-# Errors: 0, Warnings: 0
+# ** Error (suppressible): tb_processor.sv(41): (vopt-7063) Failed to find 'csr_reg_i' in hierarchical name 'dut.csr_reg_i.csr_mem'.
+#         Region: tb_processor
+# Optimization failed
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=1, Warnings=0.
+# Error loading design
+# End time: 12:05:21 on Dec 11,2023, Elapsed time: 0:00:01
+# Errors: 1, Warnings: 0
