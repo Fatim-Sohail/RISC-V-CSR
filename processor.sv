@@ -1,7 +1,10 @@
 module processor 
 (
     input logic clk,
-    input logic rst
+    input logic rst,
+    input  logic [31:0] a,
+    input  logic [31:0] b,
+    output logic [31:0] sum
 ); 
     // wires
     logic        rf_en;
@@ -218,5 +221,11 @@ module processor
         .is_mret        ( is_mret        )
     );
 
-    
+    adder addr_i
+    (
+        .a    ( rdata1      ),
+        .b    ( 32'd0       ),
+        .sum  ( opr_res     )
+    );
+
 endmodule

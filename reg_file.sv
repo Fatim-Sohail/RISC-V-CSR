@@ -25,16 +25,11 @@ module reg_file
     // synchronus write
     always_ff @(posedge clk) 
     begin
-        if(rf_en)
-        begin
-            if (rd != 5'b00000)
-            begin
-                reg_mem[rd] <= wdata;
-            end
-        end
+        if (rf_en && (rd != 5'b00000))
+            reg_mem[rd] <= wdata;
+
+        rdata1 = reg_mem[rs1];
+        rdata2 = reg_mem[rs2];
     end
-    
-    assign rdata1 = reg_mem[rs1];
-    assign rdata2 = reg_mem[rs2];
 
 endmodule

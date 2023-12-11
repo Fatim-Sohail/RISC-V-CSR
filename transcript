@@ -1,49 +1,16 @@
 # vsim -c -voptargs="+acc" tb_processor -do "run -all" 
-# Start time: 14:35:26 on Dec 11,2023
-# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
-# ** Warning: processor.sv(95): (vopt-2685) [TFMPC] - Too few port connections for 'reg_file_i'.  Expected 10, found 8.
-# ** Warning: processor.sv(95): (vopt-2718) [TFMPC] - Missing connection for port 'wdata1'.
-# ** Warning: processor.sv(95): (vopt-2718) [TFMPC] - Missing connection for port 'addr'.
-# ** Warning: processor.sv(200): (vopt-2685) [TFMPC] - Too few port connections for 'controller_i'.  Expected 18, found 17.
-# ** Warning: processor.sv(200): (vopt-2718) [TFMPC] - Missing connection for port 'postinc'.
-# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=5.
-# //  Questa Sim-64
-# //  Version 2021.1 win64 Jan 19 2021
-# //
-# //  Copyright 1991-2021 Mentor Graphics Corporation
-# //  All Rights Reserved.
-# //
-# //  QuestaSim and its associated documentation contain trade
-# //  secrets and commercial or financial information that are the property of
-# //  Mentor Graphics Corporation and are privileged, confidential,
-# //  and exempt from disclosure under the Freedom of Information Act,
-# //  5 U.S.C. Section 552. Furthermore, this information
-# //  is prohibited from disclosure under the Trade Secrets Act,
-# //  18 U.S.C. Section 1905.
-# //
-# Loading sv_std.std
-# Loading work.tb_processor(fast)
-# Loading work.processor(fast)
-# Loading work.mux_2x1(fast)
-# Loading work.pc(fast)
-# Loading work.inst_mem(fast)
-# Loading work.inst_dec(fast)
-# Loading work.reg_file(fast)
-# Loading work.imm_gen(fast)
-# Loading work.alu(fast)
-# Loading work.data_mem(fast)
-# Loading work.timer(fast)
-# Loading work.csr_reg(fast)
-# Loading work.mux_4x1(fast)
-# Loading work.controller(fast)
-# run -all
-# ** Warning: (vsim-PLI-3409) Illegal binary digit '2' in data on line 1 of file "inst.mem".    : tb_processor.sv(38)
-#    Time: 0 ns  Iteration: 0  Instance: /tb_processor
-# ** Warning: (vsim-PLI-3409) Illegal binary digit '8' in data on line 1 of file "inst.mem".    : tb_processor.sv(38)
-#    Time: 0 ns  Iteration: 0  Instance: /tb_processor
-# ** Warning: (vsim-PLI-3409) Illegal binary digit '3' in data on line 1 of file "inst.mem".    : tb_processor.sv(38)
-#    Time: 0 ns  Iteration: 0  Instance: /tb_processor
-# ** Note: $finish    : tb_processor.sv(32)
-#    Time: 1010 ns  Iteration: 0  Instance: /tb_processor
-# End time: 14:35:33 on Dec 11,2023, Elapsed time: 0:00:07
-# Errors: 0, Warnings: 8
+# Start time: 15:09:10 on Dec 11,2023
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: processor.sv(98): (vopt-2685) [TFMPC] - Too few port connections for 'reg_file_i'.  Expected 10, found 8.
+# ** Warning: processor.sv(98): (vopt-2718) [TFMPC] - Missing connection for port 'wdata1'.
+# ** Warning: processor.sv(98): (vopt-2718) [TFMPC] - Missing connection for port 'addr'.
+# ** Warning: processor.sv(203): (vopt-2685) [TFMPC] - Too few port connections for 'controller_i'.  Expected 18, found 17.
+# ** Warning: processor.sv(203): (vopt-2718) [TFMPC] - Missing connection for port 'postinc'.
+# ** Error (suppressible): reg_file.sv(31): (vopt-7033) Variable 'rdata1' driven in a combinational block, may not be driven by any other process. See reg_file.sv(20).
+# ** Error (suppressible): reg_file.sv(32): (vopt-7033) Variable 'rdata2' driven in a combinational block, may not be driven by any other process. See reg_file.sv(22).
+# Optimization failed
+# ** Error: (vopt-2064) Compiler back-end code generation process terminated with code 12.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=3, Warnings=5.
+# Error loading design
+# End time: 15:09:11 on Dec 11,2023, Elapsed time: 0:00:01
+# Errors: 3, Warnings: 5
