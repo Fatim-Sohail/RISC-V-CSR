@@ -3,6 +3,8 @@ module controller
     input  logic [6:0] opcode,
     input  logic [6:0] funct7,
     input  logic [2:0] funct3,
+    input  logic [31:0] rdata1,
+    input  logic [31:0] rdata2,
     input  logic       br_taken, // form br_cond block
     output logic [3:0] aluop,
     output logic       rf_en,    // control signal for write operation in register file
@@ -16,7 +18,9 @@ module controller
     output logic       br_take,  // to program counter MUX
     output logic       csr_rd,   // control signal to read from csr register file
     output logic       csr_wr,   // control signal to write to csr register
-    output logic       is_mret   // control signal for 'mret' instruction --- 1 will indicate that the inst is mret
+    output logic       is_mret,   // control signal for 'mret' instruction --- 1 will indicate that the inst is mret
+    output logic       postinc,
+    output logic [31:0]      result
 );
     always_comb
     begin
@@ -110,6 +114,12 @@ module controller
                     3'b100: mem_acc_mode = 3'b011; // Byte unsigned access
                     3'b101: mem_acc_mode = 3'b100; // Halfword unsigned access
                 endcase
+                case(opcode)
+                if (funct3 == 3'b010) // lwpostinc added
+                        begin
+                            result <= reg_file.rdata1;
+                            reg_file.wdata1 <= reg_file.rdata1 + imm;
+                        end
             end
             7'b0100011: // S-type - Store Instructions
             begin

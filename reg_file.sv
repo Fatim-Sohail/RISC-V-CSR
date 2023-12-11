@@ -7,7 +7,9 @@ module reg_file
     input  logic [ 4:0] rd,
     input  logic [31:0] wdata,
     output logic [31:0] rdata1,
-    output logic [31:0] rdata2
+    output logic [31:0] rdata2,
+    input  logic [31: 0] addr,              // new
+    output logic [31:0] wdata1              // new
 );
 
     logic [31:0] reg_mem [32];
@@ -16,6 +18,7 @@ module reg_file
     always_comb 
     begin
         rdata1 = reg_mem[rs1];
+        rdata1 = reg_mem[rs2 + 0];
         rdata2 = reg_mem[rs2];
     end
 
@@ -30,5 +33,8 @@ module reg_file
             end
         end
     end
+    
+    assign rdata1 = reg_mem[rs1];
+    assign rdata2 = reg_mem[rs2];
 
 endmodule

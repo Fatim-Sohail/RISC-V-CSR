@@ -1,0 +1,12 @@
+ToDo
+
+In register file:
+add a new write port
+add an adder
+
+add a new control signal post_inc
+alu - inc 0
+address = rs1 + 0
+addr -> rs1 + ImmExt
+wb to rs1
+
